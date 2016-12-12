@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Secret Santa</title>
+    <link rel="stylesheet" href="{% static 'secretsanta/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'secretsanta/css/base.css' %}"/>
+    <script type="text/javascript" src="{% static 'secretsanta/js/jquery-3.1.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'secretsanta/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'secretsanta/js/site.js' %}"></script>
+</head>
+<body>
+<div class="container-fluid" style="margin-top: 15px;">
+    {% block main %}
+    {% endblock %}
+</div>
+</body>
+</html>

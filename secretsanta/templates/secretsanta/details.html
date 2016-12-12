@@ -1,0 +1,40 @@
+{% extends "secretsanta/base.html" %}
+{% block main %}
+    <div class="row">
+        <div class="col-sm-offset-4 col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3 class="panel-title">Your Match</h3></div>
+                <div class="panel-body">{{ match.giftee }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">&nbsp;</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-offset-4 col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3 class="panel-title">Your Secret Key</h3></div>
+                <div class="panel-body">{{ match.gifter.secret_key }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">&nbsp;</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-offset-4 col-sm-1">
+            <form action="{% url 'secretsanta:index' %}" action="get">
+                <button class="btn btn-default" type="submit">Go Back</button>
+            </form>
+        </div>
+        {% if can_rematch %}
+            <div class="col-sm-1">
+                <form class="form-horizontal" action="{% url 'secretsanta:rematch' match.id %}" action="post">
+                    {% csrf_token %}
+                    <button class="btn btn-danger" type="submit">Rematch</button>
+                </form>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
